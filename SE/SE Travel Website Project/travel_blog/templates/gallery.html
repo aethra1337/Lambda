@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Galeri — Wanderlust{% endblock %}
+
+{% block content %}
+
+<div class="gallery-page-hero">
+  <h1 class="gallery-page-title">Dünyadan<br><em>Kareler</em></h1>
+  <p class="gallery-page-sub">Dünyanın dört bir yanından fotoğraflar. Her kare bir an, her an bir hikaye.</p>
+</div>
+
+<section class="gallery-section" style="padding-top: 0;">
+  <div class="gallery-grid">
+    {% for photo in gallery %}
+    <div class="gallery-item">
+      <img src="{{ photo.src }}" alt="{{ photo.caption }}" loading="lazy" />
+      <div class="gallery-caption">{{ photo.caption }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">✕</button>
+  <button class="lightbox-nav lightbox-prev">‹</button>
+  <img class="lightbox-img" src="" alt="" />
+  <button class="lightbox-nav lightbox-next">›</button>
+  <div class="lightbox-caption"></div>
+</div>
+
+{% endblock %}

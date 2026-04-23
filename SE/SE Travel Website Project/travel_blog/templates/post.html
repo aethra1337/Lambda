@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} — Wanderlust{% endblock %}
+
+{% block content %}
+
+<div class="post-hero">
+  <img src="{{ post.cover }}" alt="{{ post.title }}" />
+  <div class="post-hero-overlay">
+    <div class="post-hero-content">
+      <div class="post-hero-cat">{{ post.category }} · {{ post.read_time }} okuma</div>
+      <h1 class="post-hero-title">{{ post.title }}</h1>
+      <div class="post-hero-meta">
+        <span>{{ post.location }}</span>
+        <span>{{ post.date }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<article class="post-body">
+  <p>{{ post.excerpt }}</p>
+  <p>Yolculuk, insanı hem dışarıda hem içeride bir yolculuğa davet eder. {{ post.location }}'da geçirdiğim günler boyunca, her sabah farklı bir güzellikle karşılaştım. Sokakların sesi, yerel halkın sıcaklığı ve doğanın sunduğu tablo — hepsi birleşerek unutulmaz bir deneyim yarattı.</p>
+  <h2>İlk İzlenimler</h2>
+  <p>Havalimanından çıktığım andan itibaren şehrin kendine has ritmi beni içine çekti. Yabancı olduğum bu coğrafyada, paradoks bir şekilde, kendime ait hissettim. Belki de bu seyahatin en güzel yanı buydu — bilinmeyenin içinde tanıdık bir şeyler bulmak.</p>
+  <p>Günler ilerledikçe, turist bakışından sıyrılıp daha derin bir gözlemle her şeyi izlemeye başladım. Pazarların kalabalığı, tapınaklarda hüküm süren sessizlik, restoranlarda kurulan insan sıcaklığı... Her biri ayrı bir ders gibiydi.</p>
+  <h2>Tavsiyeler</h2>
+  <p>{{ post.location }}'a gideceklere birkaç önerim var: Erken kalkın, şehir uyanmadan sokağa çıkın. Rehber kitapların dışına çıkın, kaybolun. Ve en önemlisi — kamerayı bir kenara bırakıp sadece var olmayı deneyin. Bazı anlar fotoğraflara sığmaz.</p>
+</article>
+
+{% endblock %}

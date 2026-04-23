@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+<section class="admin-page">
+  <div class="admin-card admin-card--wide">
+    <div class="admin-panel-head">
+      <h1>Admin Paneli</h1>
+      <a class="admin-logout" href="/admin/logout">Cikis Yap</a>
+    </div>
+    <p class="admin-sub">Yeni seyahat yazisi ekleyebilirsin.</p>
+
+    {% if error %}
+    <p class="admin-alert admin-alert--error">{{ error }}</p>
+    {% endif %}
+    {% if success %}
+    <p class="admin-alert admin-alert--success">{{ success }}</p>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="admin-form admin-form-grid">
+      <label>Baslik <input type="text" name="title" required /></label>
+      <label>Konum (Sehir, Ulke) <input type="text" name="location" required /></label>
+      <label>Ulke Adi <input type="text" name="country_name" required /></label>
+      <label>Ulke Kodu (2 harf) <input type="text" name="country" maxlength="2" required /></label>
+      <label>Tarih <input type="text" name="date" placeholder="Nisan 2026" required /></label>
+      <label>Kategori <input type="text" name="category" placeholder="Avrupa" required /></label>
+      <label>Kapak Gorsel <input type="file" name="cover_file" accept="image/*" required /></label>
+      <label>Enlem <input type="text" name="lat" placeholder="41.0082" required /></label>
+      <label>Boylam <input type="text" name="lng" placeholder="28.9784" required /></label>
+      <label class="admin-form-full">
+        Ozet
+        <textarea name="excerpt" rows="4" required></textarea>
+      </label>
+      <button type="submit" class="admin-form-full">Seyahat Ekle</button>
+    </form>
+    <p class="admin-sub">Okuma suresi sistem tarafindan metin uzunluguna gore otomatik hesaplanir.</p>
+
+    <div class="admin-list">
+      <h2>Ekli Yazilar</h2>
+      <ul>
+        {% for p in posts %}
+        <li>
+          <strong>{{ p.title }}</strong>
+          <span>{{ p.location }} - {{ p.date }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}

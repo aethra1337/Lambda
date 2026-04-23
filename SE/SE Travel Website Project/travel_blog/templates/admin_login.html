@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Admin Giris{% endblock %}
+
+{% block content %}
+<section class="admin-page">
+  <div class="admin-card">
+    <h1>Admin Giris</h1>
+    <p class="admin-sub">Sadece yonetici girisi icin.</p>
+
+    {% if error %}
+    <p class="admin-alert admin-alert--error">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" class="admin-form">
+      <label>
+        Kullanici Adi
+        <input type="text" name="username" required />
+      </label>
+      <label>
+        Sifre
+        <input type="password" name="password" required />
+      </label>
+      <button type="submit">Giris Yap</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
