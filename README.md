@@ -1,5 +1,7 @@
 Lambda
-A repository of educational projects covering C# and Python programming, algorithms, object-oriented design, and a Flask web application.
+A repository of educational projects covering different programming languages and concepts.
+
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/f00cadf0-81f0-4ffd-a9ba-6b7fa3e3b902" />
 
 ---
 
