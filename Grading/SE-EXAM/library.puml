@@ -1,0 +1,33 @@
+@startuml
+
+class Book {
+  +String isbn
+  +String title
+  +String author
+  +Boolean is_available
+  +borrow()
+  +return_book()
+}
+
+class Member {
+  +String member_id
+  +String name
+  +List borrowed_books
+  +borrow_book(book)
+  +return_book(book)
+}
+
+class Library {
+  +String name
+  +List books
+  +List members
+  +add_book(book)
+  +register_member(member)
+  +find_book(title)
+}
+
+Library "1" o-- "*" Book : manages
+Library "1" o-- "*" Member : contains
+Member "1" o-- "*" Book : borrows
+
+@enduml
